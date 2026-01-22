@@ -44,7 +44,6 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Configurar entorno test
-      - name: Configurar entorno test
         run: |
           echo "DATABASE_URL=postgresql://contratos_user:contratos_password@127.0.0.1:5432/contratos_test?serverVersion=16&charset=utf8" > .env.test.local
           echo "JWT_PASSPHRASE=test" >> .env.test.local
