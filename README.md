@@ -251,6 +251,20 @@ docker-compose exec php php bin/console make:migration
 docker-compose exec php php bin/console doctrine:migrations:migrate
 ```
 
+## Documentación API
+
+La documentación del código está generada con phpDocumentor:
+
+```
+docs/api/index.html
+```
+
+Para regenerar la documentación:
+
+```bash
+docker-compose exec php vendor/bin/phpdoc -d src -t docs/api --title="API Contratos - Documentacion"
+```
+
 ## Autor
 
 Desarrollado con - Symfony 7.2 + PHP 8.3
