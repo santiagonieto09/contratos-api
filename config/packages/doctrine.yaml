@@ -27,7 +27,10 @@ doctrine:
 when@test:
     doctrine:
         dbal:
-            # Usar la misma configuración de PostgreSQL para tests
+            # Configuración para tests con PostgreSQL
+            url: '%env(resolve:DATABASE_URL)%'
+            driver: 'pdo_pgsql'
+            server_version: '16'
             dbname_suffix: '_test%env(default::TEST_TOKEN)%'
 
 when@prod:
