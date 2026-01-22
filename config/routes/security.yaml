@@ -1,0 +1,4 @@
+# Ruta para autenticación JWT
+api_login:
+    path: /api/login
+    methods: POST

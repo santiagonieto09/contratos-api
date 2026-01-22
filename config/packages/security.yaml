@@ -1,0 +1,55 @@
+security:
+    # Configuración del hasher de contraseñas
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\dataAccess\entity\Usuario:
+            algorithm: auto
+
+    # Proveedor de usuarios desde la base de datos
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    providers:
+        proveedor_usuarios:
+            entity:
+                class: App\dataAccess\entity\Usuario
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        
+        # Firewall para el endpoint de login (genera el token JWT)
+        login:
+            pattern: ^/api/login
+            stateless: true
+            json_login:
+                check_path: /api/login
+                username_path: email
+                password_path: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        # Firewall principal de la API (protegido con JWT)
+        api:
+            pattern: ^/api
+            stateless: true
+            jwt: ~
+
+    # Control de acceso a rutas
+    # Nota: Solo la primera regla que coincida será utilizada
+    access_control:
+        - { path: ^/api/register, roles: PUBLIC_ACCESS }
+        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/contratos/proyeccion, roles: PUBLIC_ACCESS }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+
+when@test:
+    security:
+        password_hashers:
+            # En tests, usar hashers menos intensivos para mayor velocidad
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Valor mínimo para bcrypt
+                time_cost: 3 # Valor mínimo para argon
+                memory_cost: 10 # Valor mínimo para argon

@@ -1,0 +1,9 @@
+lexik_jwt_authentication:
+    # Ruta a la clave privada para firmar tokens
+    secret_key: '%env(resolve:JWT_SECRET_KEY)%'
+    # Ruta a la clave pública para verificar tokens
+    public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
+    # Frase de paso para la clave privada
+    pass_phrase: '%env(JWT_PASSPHRASE)%'
+    # Tiempo de vida del token en segundos (1 hora)
+    token_ttl: 3600

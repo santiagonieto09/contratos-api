@@ -1,0 +1,36 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+    secret: '%env(APP_SECRET)%'
+    
+    # Configuración del serializador para APIs REST
+    serializer:
+        enabled: true
+        enable_attributes: true
+    
+    # Configuración del validador
+    validation:
+        enabled: true
+        enable_attributes: true
+    
+    # Configuración de property_access para serialización
+    property_access: ~
+    property_info:
+        enabled: true
+
+    http_method_override: false
+    handle_all_throwables: true
+
+    # Desactivar sesiones para API stateless
+    session:
+        enabled: false
+
+    php_errors:
+        log: true
+
+    uid:
+        default_uuid_version: 7
+        time_based_uuid_version: 7
+
+when@test:
+    framework:
+        test: true

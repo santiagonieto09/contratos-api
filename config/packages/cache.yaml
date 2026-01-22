@@ -1,0 +1,8 @@
+framework:
+    cache:
+        # Unique name of your app for cache key prefixes
+        prefix_seed: contratos_api
+
+        # Cache pool for the application
+        app: cache.adapter.filesystem
+        system: cache.adapter.system

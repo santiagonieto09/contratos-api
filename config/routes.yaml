@@ -1,0 +1,6 @@
+# Configuración de rutas de la aplicación
+controllers:
+    resource:
+        path: ../src/presentation/controller/
+        namespace: App\presentation\controller
+    type: attribute
