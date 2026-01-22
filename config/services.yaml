@@ -34,11 +34,18 @@ services:
     App\dataAccess\repository\:
         resource: '../src/dataAccess/repository/'
 
+    # Binding de interfaces a implementaciones (Inversión de dependencias - SOLID)
+    App\dataAccess\repository\ContratoRepositoryInterface:
+        alias: App\dataAccess\repository\ContratoRepository
+
+    App\dataAccess\repository\UsuarioRepositoryInterface:
+        alias: App\dataAccess\repository\UsuarioRepository
+
     # Configuración de las estrategias de método de pago (patrón Strategy)
-    App\domain\services\metodoPago\EstrategiaPayPal:
+    App\domain\services\paymentMethod\EstrategiaPayPal:
         tags: ['app.metodo_pago']
 
-    App\domain\services\metodoPago\EstrategiaPayOnline:
+    App\domain\services\paymentMethod\EstrategiaPayOnline:
         tags: ['app.metodo_pago']
 
     # Servicio de cálculo de cuotas con inyección de estrategias

@@ -36,3 +36,8 @@ node_modules/
 # Cache y logs
 *.log
 *.cache
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###
