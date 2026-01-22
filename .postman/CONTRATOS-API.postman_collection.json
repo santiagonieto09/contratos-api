@@ -1,0 +1,318 @@
+{
+  "info": {
+    "_postman_id": "8315511f-9493-4c60-8f60-612c2bf875b6",
+    "name": "CONTRATOS-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30869581"
+  },
+  "item": [
+    {
+      "name": "Registro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"usuario@ejemplo.com\",\r\n    \"password\": \"miContraseña123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURLContratos}}/api/register",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkwNTEzMjUsImV4cCI6MTc2OTA1NDkyNSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.RnR7OVGy4txFPrRtT0I5u1Dg7t4Sv8Ihky3b2VW5PAXruCRDkAjQgCc9xgEOYKfwxPfyXLRlzlVsTfDTgj_ria6y5G0gJYuEbpn-hH86I9-_dsvnnq2OreOJQJXauDS9gkJZZonEHGSczDMV5OG33bffOMZML-eByJ4eWmJuCLijTY2gBulaVvZn-0v6L4sJHjita3vw0eaxrPjLMnTM79q8uhVZ_2SlJQsqK2xEVTHC1kiJkmtGY4njlxJRpR-GZ1XGz32ech2Rz4hO3Fzpd_qPpTnkI2qz85fM8HmmhYAOiXC1YkrWWIAgW2VS6Q9pYwfuSdT882y2CSh-GZfsvQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"usuario@ejemplo.com\",\r\n    \"password\": \"miContraseña123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURLContratos}}/api/login",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear contrato",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkxMDM4OTIsImV4cCI6MTc2OTEwNzQ5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.r3sDRQvTu1jNLuUbJ87l8rBCltLW_tveQAu1ZEzCOCBj65uTa0vN7CT93mNj_dIKMweI8sakhB8Kn2KvPhD8IEW3-b1fW9eRmTK0W_Q6SOfy1arI76etbW_4muzBFdleNRTnOV7Ixkj2vVqVOUL6OTgBeg8nR9olft_UKFJMbaIDAQchK_53y9kdNI_FrPcB6AfKazzq3PnozGHvcbi4N6jvdYvQ-Om-SnbXacYfPhukuKIF4TMNcJaFzk2SwJyonOOp7JC22LZAxBdZzYt2Y2RW8HW_TNoaKuleCWyBB6FbmEE4DE4CgYlDA3QPvEqhFm60SZY3Y0E8lDjEuOUQH5IFOxYymIngPm9hmW4bkL2jPM14M8XaLAR-xqkePzZPY-dwZkMBAjhGI2TkuwTSThpvNF5XpZg1xyA5JSPCyX5cS2HLC-6-x9PAr0MiT8GsjDYMSnvAX7k2NT3wWPQUBjvxT32-FuCgUTwLT9vXa8nhN-CEc_clWgXavGtW8bVToHxiKEXmKFRts_LIhruSicKMSHaDAGjM24gDYP2iqaWqWof1EsOOpLvRdB6D1nyc86gPNp-Kqt48qO3aCfDDivbLfIS0WKtA1UIAzyRIGDgTMEyAiM-XcWpm_WBB9FdC2Fa7GG-WEuCFUXoMulR6fmB2Q1fe-poTiOXjdBBaQek",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"numeroContrato\": \"CONT-2026-001\",\r\n    \"fechaContrato\": \"2026-01-22\",\r\n    \"valorTotal\": 10000000,\r\n    \"metodoPago\": \"paypal\",\r\n    \"numeroMeses\": 12\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar contratos",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkxMDM4OTIsImV4cCI6MTc2OTEwNzQ5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.r3sDRQvTu1jNLuUbJ87l8rBCltLW_tveQAu1ZEzCOCBj65uTa0vN7CT93mNj_dIKMweI8sakhB8Kn2KvPhD8IEW3-b1fW9eRmTK0W_Q6SOfy1arI76etbW_4muzBFdleNRTnOV7Ixkj2vVqVOUL6OTgBeg8nR9olft_UKFJMbaIDAQchK_53y9kdNI_FrPcB6AfKazzq3PnozGHvcbi4N6jvdYvQ-Om-SnbXacYfPhukuKIF4TMNcJaFzk2SwJyonOOp7JC22LZAxBdZzYt2Y2RW8HW_TNoaKuleCWyBB6FbmEE4DE4CgYlDA3QPvEqhFm60SZY3Y0E8lDjEuOUQH5IFOxYymIngPm9hmW4bkL2jPM14M8XaLAR-xqkePzZPY-dwZkMBAjhGI2TkuwTSThpvNF5XpZg1xyA5JSPCyX5cS2HLC-6-x9PAr0MiT8GsjDYMSnvAX7k2NT3wWPQUBjvxT32-FuCgUTwLT9vXa8nhN-CEc_clWgXavGtW8bVToHxiKEXmKFRts_LIhruSicKMSHaDAGjM24gDYP2iqaWqWof1EsOOpLvRdB6D1nyc86gPNp-Kqt48qO3aCfDDivbLfIS0WKtA1UIAzyRIGDgTMEyAiM-XcWpm_WBB9FdC2Fa7GG-WEuCFUXoMulR6fmB2Q1fe-poTiOXjdBBaQek",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener contrato",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkxMDM4OTIsImV4cCI6MTc2OTEwNzQ5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.r3sDRQvTu1jNLuUbJ87l8rBCltLW_tveQAu1ZEzCOCBj65uTa0vN7CT93mNj_dIKMweI8sakhB8Kn2KvPhD8IEW3-b1fW9eRmTK0W_Q6SOfy1arI76etbW_4muzBFdleNRTnOV7Ixkj2vVqVOUL6OTgBeg8nR9olft_UKFJMbaIDAQchK_53y9kdNI_FrPcB6AfKazzq3PnozGHvcbi4N6jvdYvQ-Om-SnbXacYfPhukuKIF4TMNcJaFzk2SwJyonOOp7JC22LZAxBdZzYt2Y2RW8HW_TNoaKuleCWyBB6FbmEE4DE4CgYlDA3QPvEqhFm60SZY3Y0E8lDjEuOUQH5IFOxYymIngPm9hmW4bkL2jPM14M8XaLAR-xqkePzZPY-dwZkMBAjhGI2TkuwTSThpvNF5XpZg1xyA5JSPCyX5cS2HLC-6-x9PAr0MiT8GsjDYMSnvAX7k2NT3wWPQUBjvxT32-FuCgUTwLT9vXa8nhN-CEc_clWgXavGtW8bVToHxiKEXmKFRts_LIhruSicKMSHaDAGjM24gDYP2iqaWqWof1EsOOpLvRdB6D1nyc86gPNp-Kqt48qO3aCfDDivbLfIS0WKtA1UIAzyRIGDgTMEyAiM-XcWpm_WBB9FdC2Fa7GG-WEuCFUXoMulR6fmB2Q1fe-poTiOXjdBBaQek",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos/019be6d0-a2e2-762e-8637-a0d6f7395b0e",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos",
+            "019be6d0-a2e2-762e-8637-a0d6f7395b0e"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ver cuotas",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkxMDM4OTIsImV4cCI6MTc2OTEwNzQ5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.r3sDRQvTu1jNLuUbJ87l8rBCltLW_tveQAu1ZEzCOCBj65uTa0vN7CT93mNj_dIKMweI8sakhB8Kn2KvPhD8IEW3-b1fW9eRmTK0W_Q6SOfy1arI76etbW_4muzBFdleNRTnOV7Ixkj2vVqVOUL6OTgBeg8nR9olft_UKFJMbaIDAQchK_53y9kdNI_FrPcB6AfKazzq3PnozGHvcbi4N6jvdYvQ-Om-SnbXacYfPhukuKIF4TMNcJaFzk2SwJyonOOp7JC22LZAxBdZzYt2Y2RW8HW_TNoaKuleCWyBB6FbmEE4DE4CgYlDA3QPvEqhFm60SZY3Y0E8lDjEuOUQH5IFOxYymIngPm9hmW4bkL2jPM14M8XaLAR-xqkePzZPY-dwZkMBAjhGI2TkuwTSThpvNF5XpZg1xyA5JSPCyX5cS2HLC-6-x9PAr0MiT8GsjDYMSnvAX7k2NT3wWPQUBjvxT32-FuCgUTwLT9vXa8nhN-CEc_clWgXavGtW8bVToHxiKEXmKFRts_LIhruSicKMSHaDAGjM24gDYP2iqaWqWof1EsOOpLvRdB6D1nyc86gPNp-Kqt48qO3aCfDDivbLfIS0WKtA1UIAzyRIGDgTMEyAiM-XcWpm_WBB9FdC2Fa7GG-WEuCFUXoMulR6fmB2Q1fe-poTiOXjdBBaQek",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos/019be6d0-a2e2-762e-8637-a0d6f7395b0e/cuotas",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos",
+            "019be6d0-a2e2-762e-8637-a0d6f7395b0e",
+            "cuotas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Simular cuotas paypal",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"valorTotal\": 5000000,\r\n    \"metodoPago\": \"paypal\",\r\n    \"numeroMeses\": 6,\r\n    \"fechaContrato\": \"2026-01-22\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos/proyeccion",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos",
+            "proyeccion"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Simular cuotas payonline",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"valorTotal\": 12000000,\r\n    \"metodoPago\": \"payonline\",\r\n    \"numeroMeses\": 24,\r\n    \"fechaContrato\": \"2026-02-01\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos/proyeccion",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos",
+            "proyeccion"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ver perfil",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkxMDM4OTIsImV4cCI6MTc2OTEwNzQ5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.r3sDRQvTu1jNLuUbJ87l8rBCltLW_tveQAu1ZEzCOCBj65uTa0vN7CT93mNj_dIKMweI8sakhB8Kn2KvPhD8IEW3-b1fW9eRmTK0W_Q6SOfy1arI76etbW_4muzBFdleNRTnOV7Ixkj2vVqVOUL6OTgBeg8nR9olft_UKFJMbaIDAQchK_53y9kdNI_FrPcB6AfKazzq3PnozGHvcbi4N6jvdYvQ-Om-SnbXacYfPhukuKIF4TMNcJaFzk2SwJyonOOp7JC22LZAxBdZzYt2Y2RW8HW_TNoaKuleCWyBB6FbmEE4DE4CgYlDA3QPvEqhFm60SZY3Y0E8lDjEuOUQH5IFOxYymIngPm9hmW4bkL2jPM14M8XaLAR-xqkePzZPY-dwZkMBAjhGI2TkuwTSThpvNF5XpZg1xyA5JSPCyX5cS2HLC-6-x9PAr0MiT8GsjDYMSnvAX7k2NT3wWPQUBjvxT32-FuCgUTwLT9vXa8nhN-CEc_clWgXavGtW8bVToHxiKEXmKFRts_LIhruSicKMSHaDAGjM24gDYP2iqaWqWof1EsOOpLvRdB6D1nyc86gPNp-Kqt48qO3aCfDDivbLfIS0WKtA1UIAzyRIGDgTMEyAiM-XcWpm_WBB9FdC2Fa7GG-WEuCFUXoMulR6fmB2Q1fe-poTiOXjdBBaQek",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURLContratos}}/api/perfil",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "perfil"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar métodos pago",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NjkxMDM4OTIsImV4cCI6MTc2OTEwNzQ5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXN1YXJpb0BlamVtcGxvLmNvbSJ9.r3sDRQvTu1jNLuUbJ87l8rBCltLW_tveQAu1ZEzCOCBj65uTa0vN7CT93mNj_dIKMweI8sakhB8Kn2KvPhD8IEW3-b1fW9eRmTK0W_Q6SOfy1arI76etbW_4muzBFdleNRTnOV7Ixkj2vVqVOUL6OTgBeg8nR9olft_UKFJMbaIDAQchK_53y9kdNI_FrPcB6AfKazzq3PnozGHvcbi4N6jvdYvQ-Om-SnbXacYfPhukuKIF4TMNcJaFzk2SwJyonOOp7JC22LZAxBdZzYt2Y2RW8HW_TNoaKuleCWyBB6FbmEE4DE4CgYlDA3QPvEqhFm60SZY3Y0E8lDjEuOUQH5IFOxYymIngPm9hmW4bkL2jPM14M8XaLAR-xqkePzZPY-dwZkMBAjhGI2TkuwTSThpvNF5XpZg1xyA5JSPCyX5cS2HLC-6-x9PAr0MiT8GsjDYMSnvAX7k2NT3wWPQUBjvxT32-FuCgUTwLT9vXa8nhN-CEc_clWgXavGtW8bVToHxiKEXmKFRts_LIhruSicKMSHaDAGjM24gDYP2iqaWqWof1EsOOpLvRdB6D1nyc86gPNp-Kqt48qO3aCfDDivbLfIS0WKtA1UIAzyRIGDgTMEyAiM-XcWpm_WBB9FdC2Fa7GG-WEuCFUXoMulR6fmB2Q1fe-poTiOXjdBBaQek",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURLContratos}}/api/contratos/metodos-pago",
+          "host": [
+            "{{baseURLContratos}}"
+          ],
+          "path": [
+            "api",
+            "contratos",
+            "metodos-pago"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURLContratos",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
