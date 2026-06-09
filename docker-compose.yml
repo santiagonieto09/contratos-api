@@ -14,7 +14,7 @@ services:
       DATABASE_URL: postgresql://contratos_user:contratos_password@database:5432/contratos_db?serverVersion=16&charset=utf8
       JWT_SECRET_KEY: '%kernel.project_dir%/config/jwt/private.pem'
       JWT_PUBLIC_KEY: '%kernel.project_dir%/config/jwt/public.pem'
-      JWT_PASSPHRASE: '${JWT_PASSPHRASE:-contratos_jwt_secret}'
+      JWT_PASSPHRASE: '${JWT_PASSPHRASE:-}'
       APP_ENV: '${APP_ENV:-dev}'
       APP_SECRET: '${APP_SECRET:-contratos_app_secret_key_change_in_production}'
 

@@ -72,7 +72,7 @@ docker-compose exec php php bin/console doctrine:migrations:migrate --no-interac
 
 | Método | Ruta | Descripción |
 |--------|------|-------------|
-| POST | `/api/register` | Registrar usuario |
+| POST | `/api/register` | Registrar usuario y devolver token JWT |
 | POST | `/api/login` | Obtener token JWT |
 
 ### Usuario (Requiere JWT)
@@ -111,6 +111,20 @@ Content-Type: application/json
 }
 ```
 
+Respuesta esperada:
+
+```json
+{
+    "mensaje": "Usuario registrado exitosamente",
+    "token": "<jwt>",
+    "usuario": {
+        "id": "...",
+        "email": "usuario@ejemplo.com",
+        "creadoEn": "2026-01-22 12:00:00"
+    }
+}
+```
+
 ### 2. Obtener Token JWT
 
 ```json
@@ -122,6 +136,8 @@ Content-Type: application/json
     "password": "password123"
 }
 ```
+
+Postman guarda este token en la variable de colección `jwt_token`.
 
 ### 3. Crear Contrato
 

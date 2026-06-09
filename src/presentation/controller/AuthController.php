@@ -8,6 +8,7 @@ use App\domain\exception\ValidacionException;
 use App\domain\services\AuthServicio;
 use App\domain\services\ValidadorServicio;
 use App\presentation\DTO\RegistrarUsuarioDTO;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,8 @@ class AuthController extends AbstractController
      */
     public function __construct(
         private readonly AuthServicio $authServicio,
-        private readonly ValidadorServicio $validador
+        private readonly ValidadorServicio $validador,
+        private readonly JWTTokenManagerInterface $jwtTokenManager
     ) {
     }
 
@@ -47,9 +49,11 @@ class AuthController extends AbstractController
             $this->validador->validar($dto);
 
             $usuario = $this->authServicio->registrar($dto);
+            $token = $this->jwtTokenManager->create($usuario);
 
             return $this->json([
                 'mensaje' => 'Usuario registrado exitosamente',
+                'token' => $token,
                 'usuario' => [
                     'id' => (string) $usuario->getId(),
                     'email' => $usuario->getEmail(),
