@@ -22,6 +22,8 @@ RUN printf 'APP_ENV=prod\nAPP_SECRET=build_only\nDATABASE_URL=postgresql://dummy
     composer install --no-dev --optimize-autoloader --no-interaction && \
     php bin/console cache:clear --env=prod --no-debug --no-interaction
 
+RUN chmod +x docker-start.sh
+
 EXPOSE 8080
 
-CMD php -d variables_order=EGPCS -S 0.0.0.0:${PORT:-8080} public/index.php
+CMD ./docker-start.sh
