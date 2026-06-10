@@ -15,7 +15,9 @@ RUN mkdir -p config/jwt /var/log/supervisor && \
     if [ ! -f config/jwt/private.pem ]; then \
         openssl genpkey -algorithm RSA -out config/jwt/private.pem -pkeyopt rsa_keygen_bits:2048 && \
         openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem && \
-        chmod 600 config/jwt/private.pem; \
+        chown www-data:www-data config/jwt/private.pem config/jwt/public.pem && \
+        chmod 640 config/jwt/private.pem && \
+        chmod 644 config/jwt/public.pem; \
     fi
 
 RUN printf 'APP_ENV=prod\nAPP_SECRET=build_only\nDATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy\nJWT_SECRET_KEY=%%kernel.project_dir%%/config/jwt/private.pem\nJWT_PUBLIC_KEY=%%kernel.project_dir%%/config/jwt/public.pem\nJWT_PASSPHRASE=\nCORS_ALLOW_ORIGIN=^https?://.*$' > .env && \
