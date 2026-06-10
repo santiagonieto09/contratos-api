@@ -18,9 +18,9 @@ RUN mkdir -p config/jwt && \
         chmod 600 config/jwt/private.pem; \
     fi
 
-RUN composer install --no-dev --optimize-autoloader --no-interaction
-
-RUN php bin/console cache:clear --env=prod --no-debug --no-interaction
+RUN echo "APP_ENV=prod\nAPP_SECRET=build_only" > .env && \
+    composer install --no-dev --optimize-autoloader --no-interaction && \
+    php bin/console cache:clear --env=prod --no-debug --no-interaction
 
 EXPOSE 8080
 
