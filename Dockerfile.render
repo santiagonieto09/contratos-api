@@ -18,7 +18,7 @@ RUN mkdir -p config/jwt && \
         chmod 600 config/jwt/private.pem; \
     fi
 
-RUN echo "APP_ENV=prod\nAPP_SECRET=build_only" > .env && \
+RUN printf 'APP_ENV=prod\nAPP_SECRET=build_only\nDATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy\nJWT_PASSPHRASE=\nCORS_ALLOW_ORIGIN=^https?://.*$' > .env && \
     composer install --no-dev --optimize-autoloader --no-interaction && \
     php bin/console cache:clear --env=prod --no-debug --no-interaction
 
