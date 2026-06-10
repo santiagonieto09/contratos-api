@@ -24,17 +24,10 @@ services:
         fromDatabase:
           name: contratos-db
           property: connectionString
-    database:
-      - contratos-db
-
-  - type: postgresql
-    name: contratos-db
-    plan: free
-    region: ohio
-    version: 16
 
 databases:
   - name: contratos-db
     plan: free
     region: ohio
     postgresMajorVersion: 16
+    ipAllowList: []
